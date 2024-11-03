@@ -1,5 +1,7 @@
 {
   stdenv,
+  lib,
+  pkgs,
   fetchFromGitHub,
   fontforge,
   makeWrapper,
@@ -38,7 +40,7 @@ stdenv.mkDerivation {
     	      cp -r $src/csv $out/share/dict/json
     	    '';
 
-  meta = prevAttrs.meta // {
+  meta = {
     description = "プログラミング英語検定学習に使用するデータをいろいろ詰め合わせ";
     homepage = "https://github.com/MatsumotoDesuyo/programming-english";
     platforms = lib.platforms.all;

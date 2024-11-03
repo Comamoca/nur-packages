@@ -1,5 +1,6 @@
 {
   stdenv,
+  lib,
   fetchFromGitHub,
 }:
 stdenv.mkDerivation {
@@ -19,7 +20,7 @@ stdenv.mkDerivation {
                 install -D SKK-JISYO.im@sparql.units.utf8 $out/share/SKK-JISYO.im@sparql.units.utf8
     	    '';
 
-  meta = prevAttrs.meta // {
+  meta = {
     description = " Nix flake support to SKK dictionaries for idolmaster.";
     homepage = "https://github.com/banjun/skk-jisyo-imasparql";
     platforms = lib.platforms.all;
