@@ -16,7 +16,8 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
+  programming-english = pkgs.callPackage ./pkgs/programming-english { };
+  skk-jisyo-imasparql = pkgs.callPackage ./pkgs/skk-jisyo-imasparql { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
