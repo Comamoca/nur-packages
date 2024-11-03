@@ -7,7 +7,7 @@
   makeWrapper,
 }:
 stdenv.mkDerivation {
-  pname = "hello";
+  pname = "programming-english";
   version = "0.1.0";
   src = pkgs.fetchFromGitHub {
     owner = "MatsumotoDesuyo";
@@ -24,17 +24,17 @@ stdenv.mkDerivation {
                              $src/csv/3_Premise_English100.csv \
                              > merged.csv
 
-    	    xsv select name merged.csv > words.csv
-    	    xsv select name $src/csv/4_Abbreviation70.csv >> words.csv
-    	    xsv select name $src/csv/5_\ Acrony.csv >> words.csv
-    	    xsv select name $src/csv/6_Reserved.csv >> words.csv
+    	    xsv select name merged.csv > words
+    	    xsv select name $src/csv/4_Abbreviation70.csv >> words
+    	    xsv select name $src/csv/5_\ Acrony.csv >> words
+    	    xsv select name $src/csv/6_Reserved.csv >> words
   '';
 
   installPhase = ''
     	      mkdir -p $out/share/dict/csv
     	      mkdir -p $out/share/dict/json
 
-                  cp words.csv $out/share/dict/csv/words.csv
+                  cp words $out/share/dict/programming-english-dict
 
     	      cp -r $src/csv $out/share/dict/
     	      cp -r $src/csv $out/share/dict/json
