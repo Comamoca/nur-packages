@@ -71,7 +71,7 @@
               cat pkgsinfo.json | jq -r '
                 "Name|Description|Homepage|License|Platforms|",
                 "----|-----------|--------|-------|---------|",
-                (.[] |  [.name, .description, .homepage, .license, (.platforms | join(", "))] | join("|"))
+                (to_entries[] |  [.key, .value.description, .value.homepage, .value.license, (.value.platforms | join(", "))] | join("|"))
                 | @text' > pkgsinfo
 
               sed "/{PACKAGE_LIST}/ {
