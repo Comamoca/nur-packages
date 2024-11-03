@@ -19,19 +19,19 @@ stdenv.mkDerivation {
   buildInputs = with pkgs; [ xsv ];
 
   buildPhase = ''
-    	    xsv cat rows $src/csv/1_Basic300.csv \
-                             $src/csv/2_Advanced.csv \
-                             $src/csv/3_Premise_English100.csv \
-                             > merged.csv
+        	    xsv cat rows $src/csv/1_Basic300.csv \
+                                 $src/csv/2_Advanced.csv \
+                                 $src/csv/3_Premise_English100.csv \
+                                 > merged.csv
 
-    	    xsv select name merged.csv > words
-    	    xsv select name $src/csv/4_Abbreviation70.csv >> words
-    	    xsv select name $src/csv/5_\ Acrony.csv >> words
-    	    xsv select name $src/csv/6_Reserved.csv >> words
+        	    xsv select name merged.csv > words
+        	    xsv select name $src/csv/4_Abbreviation70.csv >> words
+        	    xsv select name $src/csv/5_\ Acrony.csv >> words
+        	    xsv select name $src/csv/6_Reserved.csv >> words
 
-	    # Clean the data
-	    cat words | sed 's/[() ].*//' | uniq > tmp
-	    mv tmp words
+    	    # Clean the data
+    	    cat words | sed 's/[() ].*//' | uniq > tmp
+    	    mv tmp words
   '';
 
   installPhase = ''
