@@ -3,14 +3,17 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    default-systems.url = "github:nix-systems/default";
   };
 
-  outputs = {
-    self,
-    nixpkgs, 
-    treefmt-nix,
-    flake-parts,
-  }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      treefmt-nix,
+      flake-parts,
+      default-systems,
+    }:
     let
       systems = [
         "x86_64-linux"
@@ -21,7 +24,8 @@
         "armv7l-linux"
       ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
-      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+      eachSystem =
+        f: nixpkgs.lib.genAttrs (import default-systems) (system: f nixpkgs.legacyPackages.${system});
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
@@ -30,9 +34,14 @@
         formatting = treefmtEval.${pkgs.system}.config.build.check self;
       });
 
-      legacyPackages = forAllSystems (system: import ./default.nix {
-        pkgs = import nixpkgs { inherit system; };
-      });
-      packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
+      legacyPackages = forAllSystems (
+        system:
+        import ./default.nix {
+          pkgs = import nixpkgs { inherit system; };
+        }
+      );
+      packages = forAllSystems (
+        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
+      );
     };
 }
