@@ -79,12 +79,4 @@ jobs:
       run: curl -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
     - name: Update readme
       run: nix develop -c update-pkgsinfo
-    - name: Commit changes
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add .
-        git commit -m "Update Package List at README "
-        git push origin main
+    - uses: stefanzweifel/git-auto-commit-action@v5
