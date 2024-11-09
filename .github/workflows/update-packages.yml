@@ -15,8 +15,6 @@ jobs:
           experimental-features = nix-command flakes
     - name: Update sources
       run: nix run nixpkgs#nvfetcher
-    - name: Update readme
-      run: nix develop -c update-pkgsinfo
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
