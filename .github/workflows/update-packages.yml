@@ -1,7 +1,10 @@
 name: "Update source and create PR"
-on:
-  schedule:
-    - cron:  '0 19 * * *'
+
+# NOTE: It doesn't work well at the moment, so I'll temporarily disable it.
+# on:
+#   schedule:
+#     - cron:  '0 19 * * *'
+
 jobs:
   updates:
     runs-on: ubuntu-latest
