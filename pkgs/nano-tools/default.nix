@@ -91,6 +91,6 @@ in
   meta = {
     description = "A set of tools for emacs that are not worth to be packaged.";
     homepage = "https://github.com/rougier/nano-tools";
-    platforms = lib.platforms.all;
+    platforms = pkgs.lib.platforms.all;
   };
 }
