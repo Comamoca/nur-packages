@@ -19,6 +19,8 @@
   programming-english = pkgs.callPackage ./pkgs/programming-english { };
   skk-jisyo-imasparql = pkgs.callPackage ./pkgs/skk-jisyo-imasparql { };
   nano-tools = pkgs.callPackage ./pkgs/nano-tools { inherit pkgs; };
+  slite = pkgs.callPackage ./pkgs/emacs-slite { inherit pkgs; };
+
   # secretlint = pkgs.callPackage ./pkgs/secretlint { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
