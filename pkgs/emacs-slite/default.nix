@@ -1,6 +1,6 @@
 { pkgs }:
-let
-  slite = pkgs.emacsPackages.melpaBuild {
+{
+  package = pkgs.emacsPackages.melpaBuild {
     pname = "slite";
     version = "1";
     buildInputs = [ ];
@@ -10,9 +10,6 @@ let
       hash = "sha256-ohVZUSpHNDLna6BmFtgtUSKV7Pj6Nj+67imVWXWn+mQ=";
     };
   };
-in
-{
-  inherit slite;
 
   meta = {
     description = "a SLIme-based TEst runner for FiveAM and Parachute Tests";
