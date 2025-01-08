@@ -1,6 +1,6 @@
 { pkgs }:
 {
-  package = pkgs.emacsPackages.melpaBuild {
+  slite = pkgs.emacsPackages.melpaBuild {
     pname = "slite";
     version = "1";
     buildInputs = [ ];
