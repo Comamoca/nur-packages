@@ -1,20 +1,13 @@
 { pkgs }:
-let
-  stdenv = pkgs.stdenv;
+pkgs.emacsPackages.melpaBuild {
+  pname = "slite";
+  version = "1";
+  buildInputs = [ ];
 
-  slite = pkgs.emacsPackages.melpaBuild {
-    pname = "slite";
-    version = "1";
-    buildInputs = [ ];
-
-    src = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/tdrhq/slite/refs/heads/main/slite.el";
-      hash = "sha256-ohVZUSpHNDLna6BmFtgtUSKV7Pj6Nj+67imVWXWn+mQ=";
-    };
+  src = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/tdrhq/slite/refs/heads/main/slite.el";
+    hash = "sha256-ohVZUSpHNDLna6BmFtgtUSKV7Pj6Nj+67imVWXWn+mQ=";
   };
-in 
-{
-  inherit slite;
 
   meta = {
     description = "a SLIme-based TEst runner for FiveAM and Parachute Tests";
