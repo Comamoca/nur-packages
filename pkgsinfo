@@ -1,0 +1,4 @@
+Name|Description|Homepage|License|Platforms|
+----|-----------|--------|-------|---------|
+programming-english|プログラミング英語検定学習に使用するデータをいろいろ詰め合わせ|https://github.com/MatsumotoDesuyo/programming-english|N/A|x86_64-darwin, aarch64-darwin, aarch64-linux, x86_64-linux
+skk-jisyo-imasparql| Nix flake support to SKK dictionaries for idolmaster.|https://github.com/banjun/skk-jisyo-imasparql|N/A|x86_64-darwin, aarch64-darwin, aarch64-linux, x86_64-linux
