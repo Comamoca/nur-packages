@@ -55,7 +55,7 @@ let
 
     src = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/rougier/nano-tools/refs/heads/master/nano-popup.el";
-      hash = "sha256-pK153s06m+sDxRc/RfvbmTtcJUj7n8eRzg/2HhPy8eo=";
+      hash = "sha256-7LmG7xZ8ZGDPXgg3HfZRuV37zXR0F5mOu3Ol5SEz7us=";
     };
   };
 
@@ -84,9 +84,17 @@ let
       hash = "sha256-/E1CchVdqB+YPkLx1rUliLDatpTECNzxZ2oT80boXgQ=";
     };
   };
-in 
+in
 {
-  inherit kill popup box theme modeline read journal;
+  inherit
+    kill
+    popup
+    box
+    theme
+    modeline
+    read
+    journal
+    ;
 
   meta = {
     description = "A set of tools for emacs that are not worth to be packaged.";
