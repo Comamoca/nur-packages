@@ -51,36 +51,34 @@
             pkgs = import nixpkgs { inherit system; };
 
             update-pkgsinfo = pkgs.writeShellScriptBin "update-pkgsinfo" ''
-              nix eval --json .#packages.x86_64-linux --apply 'pkgs:
-                builtins.listToAttrs (
-                  builtins.map (pkgName:
-                    { name = pkgName;
-                      value = {
-                        name = pkgs.''${pkgName}.meta.name or "N/A";
-                        description = pkgs.''${pkgName}.meta.description or "N/A";
-                        homepage = pkgs.''${pkgName}.meta.homepage or "N/A";
-                        license = pkgs.''${pkgName}.meta.license.shortName or "N/A";
-                        platforms = builtins.filter (
-                          x: x == "x86_64-linux" || x == "aarch64-linux" || x == "x86_64-darwin" || x == "aarch64-darwin"
-                        ) (pkgs.''${pkgName}.meta.platforms or []);
-                      };
-                    }
-                  ) (builtins.attrNames pkgs)
-                )' > pkgsinfo.json
+                            nix eval --json .#packages.x86_64-linux --apply 'pkgs:
+                              builtins.listToAttrs (
+                                builtins.map (pkgName:
+                                  { name = pkgName;
+                                    value = {
+                                      name = pkgs.''${pkgName}.meta.name or "N/A";
+                                      description = pkgs.''${pkgName}.meta.description or "N/A";
+                                      homepage = pkgs.''${pkgName}.meta.homepage or "N/A";
+                                      license = pkgs.''${pkgName}.meta.license.shortName or "N/A";
+                                      platforms = builtins.filter (
+                                        x: x == "x86_64-linux" || x == "aarch64-linux" || x == "x86_64-darwin" || x == "aarch64-darwin"
+                                      ) (pkgs.''${pkgName}.meta.platforms or []);
+                                    };
+                                  }
+                                ) (builtins.attrNames pkgs)
+                              )' > pkgsinfo.json
 
-              cat pkgsinfo.json | jq -r '
-                "Name|Description|Homepage|License|Platforms|",
-                "----|-----------|--------|-------|---------|",
-                (to_entries[] |  [.key, .value.description, .value.homepage, .value.license, (.value.platforms | join(", "))] | join("|"))
-                | @text' > pkgsinfo
+                            cat pkgsinfo.json | jq -r '
+                              "Name|Description|Homepage|License|Platforms|",
+                              "----|-----------|--------|-------|---------|",
+                              (to_entries[] |  [.key, .value.description, .value.homepage, .value.license, (.value.platforms | join(", "))] | join("|"))
+                              | @text' > pkgsinfo
 
-              sed "/{PACKAGE_LIST}/ {
-                  r pkgsinfo
-                  d
-              }" README.md.tmpl > README.md
-
-	      rm pkgsinfo
-	    '';
+                            sed "/{PACKAGE_LIST}/ {
+                                r pkgsinfo
+                                d
+                            }" README.md.tmpl > README.md 
+              	    '';
           in
           pkgs.mkShellNoCC {
             packages = [ update-pkgsinfo ];
