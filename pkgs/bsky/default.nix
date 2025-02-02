@@ -20,4 +20,4 @@ pkgs.buildGoModule {
     homepage = "https://github.com/mattn/bsky";
     license = licenses.mit;
   };
-};
+}
