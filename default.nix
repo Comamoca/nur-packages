@@ -23,8 +23,8 @@
   slite = pkgs.callPackage ./pkgs/emacs-slite { inherit pkgs; };
   bsky = pkgs.callPackage ./pkgs/bsky { inherit pkgs; };
   cabin = pkgs.callPackage ./pkgs/cabin { inherit pkgs; };
-  testing-language-server = ./pkgs/testing-language-server { inherit pkgs; };
-  testing-ls-adapter = ./pkgs/testing-ls-adapter { inherit pkgs; };
+  testing-language-server = ./pkgs/testing-language-server { inherit pkgs fetchurl fetchgit fetchFromGitHub dockerTools; };
+  testing-ls-adapter = ./pkgs/testing-ls-adapter { inherit pkgs fetchurl fetchgit fetchFromGitHub dockerTools; };
 
   # secretlint = pkgs.callPackage ./pkgs/secretlint { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
