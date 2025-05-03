@@ -1,20 +1,14 @@
 {
   pkgs,
-  fetchurl,
-  fetchgit,
-  fetchFromGitHub,
-  dockerTools
 }:
 let
   generated = import ../../_sources/generated.nix;
-
   sources = generated {
     inherit
-      (pkgs)
-      fetchurl
-      fetchgit
-      fetchFromGitHub
-      dockerTools
+      pkgs.fetchurl
+      pkgs.fetchgit
+      pkgs.fetchFromGitHub
+      pkgs.dockerTools
       ;
   };
 in
