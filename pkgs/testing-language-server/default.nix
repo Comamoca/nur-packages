@@ -1,7 +1,7 @@
 {
+  pkgs,
   fetchurl,
   fetchgit,
-  pkgs,
   fetchFromGitHub,
   dockerTools,
 }:
@@ -10,11 +10,11 @@ let
 
   sources = generated {
     inherit
-      pkgs
       fetchurl
       fetchgit
       fetchFromGitHub
       dockerTools
+      pkgs
       ;
   };
 in
