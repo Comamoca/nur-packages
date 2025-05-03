@@ -2,8 +2,6 @@
   fetchurl,
   fetchgit,
   pkgs,
-  fetchurl,
-  fetchgit,
   fetchFromGitHub,
   dockerTools,
 }:
