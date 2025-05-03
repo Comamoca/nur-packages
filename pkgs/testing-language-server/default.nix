@@ -1,9 +1,11 @@
 {
   fetchurl,
   fetchgit,
+  pkgs,
+  fetchurl,
+  fetchgit,
   fetchFromGitHub,
   dockerTools,
-  pkgs,
 }:
 let
   generated = import ./_sources/generated.nix;
