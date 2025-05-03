@@ -4,6 +4,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     default-systems.url = "github:nix-systems/default";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -13,7 +17,7 @@
       treefmt-nix,
       flake-parts,
       default-systems,
-    }:
+    }@inputs:
     let
       systems = [
         "x86_64-linux"
@@ -28,7 +32,11 @@
         f: nixpkgs.lib.genAttrs (import default-systems) (system: f nixpkgs.legacyPackages.${system});
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
-    {
+      {
+	nixpkgs.overlays = [
+	  inputs.rust-bin.beta.latest.default
+	];
+
       formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       checks = eachSystem (pkgs: {
         formatting = treefmtEval.${pkgs.system}.config.build.check self;
