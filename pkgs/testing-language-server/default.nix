@@ -23,5 +23,5 @@ pkgs.rustPlatform.buildRustPackage {
   version = "0.1.0";
   src = sources.testing-language-server.src;
   doCheck = false;
-  cargoLock.lockFile = ./Cargo.lock;
+  cargoLock.lockFile = sources.testing-language-server.cargoLock;
 }
