@@ -20,6 +20,6 @@ pkgs.rustPlatform.buildRustPackage {
   pname = "testing-language-server";
   version = "0.1.0";
   src = sources.testing-language-server.src;
-  doCheck = false;
+  doCheck = false; 
   cargoLock.lockFile = sources.testing-language-server.cargoLock;
 }
