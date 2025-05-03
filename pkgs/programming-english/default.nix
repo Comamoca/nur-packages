@@ -16,7 +16,7 @@ stdenv.mkDerivation {
     hash = "sha256-PZRJqDMfy4F92i10jeUY0R5P45YYBvEB3hm55dSbubo=";
   };
 
-  buildInputs = with pkgs; [ xsv ];
+  buildInputs = with pkgs; [ xan ];
 
   buildPhase = ''
         	    xsv cat rows $src/csv/1_Basic300.csv \
