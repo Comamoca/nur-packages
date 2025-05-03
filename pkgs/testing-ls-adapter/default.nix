@@ -4,12 +4,10 @@
 let
   generated = import ../../_sources/generated.nix;
   sources = generated {
-    inherit (pkgs)
-      pkgs.fetchurl
-      pkgs.fetchgit
-      pkgs.fetchFromGitHub
-      pkgs.dockerTools
-      ;
+    fetchurl = pkgs.fetchurl;
+    fetchgit = pkgs.fetchgit;
+    fetchFromGitHub = pkgs.fetchFromGitHub;
+    dockerTools = pkgs.dockerTools;
   };
 in
 pkgs.rustPlatform.buildRustPackage {
