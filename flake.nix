@@ -11,13 +11,13 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       treefmt-nix,
       flake-parts,
       default-systems,
-    }@inputs:
+    }:
     let
       systems = [
         "x86_64-linux"
