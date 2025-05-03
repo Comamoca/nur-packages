@@ -12,9 +12,7 @@ let
       pkgs
       fetchurl
       fetchgit
-      fetchFromGitHub
-      dockerTools
-      ;
+      fetchFromGitHub;
   };
 in
 pkgs.rustPlatform.buildRustPackage {
