@@ -49,6 +49,23 @@ nurpkgs = nur.legacyPackages.${system};
 nurpkgs.programming-english
 ```
 
+With overlay.
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur-packages.url = "github:Comamoca/nur-packages";
+  };
+
+  outputs = { self, nixpkgs, nur-packages }: {
+    nixpkgs.overlays = [
+      (import "${nur-packages}/overlay.nix")
+    ];
+  };
+}
+```
+
 ## 📦 Package List
 
 Name|Description|Homepage|License|Platforms|
