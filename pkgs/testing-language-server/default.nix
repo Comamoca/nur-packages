@@ -10,10 +10,12 @@ let
 
   sources = generated {
     inherit
-      pkgs
+      (pkgs)
       fetchurl
       fetchgit
-      fetchFromGitHub;
+      fetchFromGitHub
+      dockerTools
+      ;
   };
 in
 pkgs.rustPlatform.buildRustPackage {
