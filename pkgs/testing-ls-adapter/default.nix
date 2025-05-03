@@ -6,7 +6,7 @@
   dockerTools,
 }:
 let
-  generated = import ./_sources/generated.nix;
+  generated = import ../../_sources/generated.nix;
   sources = generated {
     inherit (pkgs)
       fetchurl
