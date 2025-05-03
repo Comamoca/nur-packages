@@ -17,6 +17,7 @@
       treefmt-nix,
       flake-parts,
       default-systems,
+      rust-overlay,
       ...
     }:
     let
