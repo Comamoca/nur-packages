@@ -8,7 +8,8 @@ let
   generated = import ./_sources/generated.nix;
 
   sources = generated {
-    inherit (pkgs)
+    inherit
+      pkgs
       fetchurl
       fetchgit
       fetchFromGitHub
