@@ -26,9 +26,7 @@
     inherit (pkgs)
       fetchurl
       fetchgit
-      fetchFromGitHub
-      dockerTools
-      ;
+      fetchFromGitHub;
   };
   testing-ls-adapter = pkgs.callPackage ./pkgs/testing-ls-adapter {
     inherit (pkgs)
