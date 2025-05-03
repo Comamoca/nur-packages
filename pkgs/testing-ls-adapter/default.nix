@@ -3,7 +3,7 @@
   fetchurl,
   fetchgit,
   fetchFromGitHub,
-  dockerTools,
+  dockerTools
 }:
 let
   generated = import ../../_sources/generated.nix;
