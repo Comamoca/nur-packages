@@ -34,10 +34,10 @@
         f: nixpkgs.lib.genAttrs (import default-systems) (system: f nixpkgs.legacyPackages.${system});
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
-      {
-	nixpkgs.overlays = [
-	  inputs.rust-bin.beta.latest.default
-	];
+    {
+      nixpkgs.overlays = [
+        inputs.rust-bin.beta.latest.default
+      ];
 
       formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       checks = eachSystem (pkgs: {
