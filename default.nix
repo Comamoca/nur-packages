@@ -16,12 +16,15 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  programming-english = pkgs.callPackage ./pkgs/programming-english { };
+  # NOTE: Exclude from package until migration from xsv to xan is complete
+  # programming-english = pkgs.callPackage ./pkgs/programming-english { };
   skk-jisyo-imasparql = pkgs.callPackage ./pkgs/skk-jisyo-imasparql { };
   nano-tools = pkgs.callPackage ./pkgs/nano-tools { inherit pkgs; };
   slite = pkgs.callPackage ./pkgs/emacs-slite { inherit pkgs; };
   bsky = pkgs.callPackage ./pkgs/bsky { inherit pkgs; };
   cabin = pkgs.callPackage ./pkgs/cabin { inherit pkgs; };
+  testing-language-server = ./pkgs/testing-language-server { inherit pkgs; };
+  testing-ls-adapter = ./pkgs/testing-ls-adapter { inherit pkgs; };
 
   # secretlint = pkgs.callPackage ./pkgs/secretlint { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
