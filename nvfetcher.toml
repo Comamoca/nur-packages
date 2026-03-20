@@ -1,3 +1,7 @@
 [testing-language-server]
 src.git = "https://github.com/kbwo/testing-language-server"
 fetch.git = "https://github.com/kbwo/testing-language-server"
+
+[zola]
+src.git = "https://github.com/getzola/zola"
+fetch.git = "https://github.com/getzola/zola"

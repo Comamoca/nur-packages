@@ -22,6 +22,7 @@
   cabin = pkgs.callPackage ./pkgs/cabin { inherit pkgs; };
   testing-language-server = pkgs.callPackage ./pkgs/testing-language-server { inherit pkgs; };
   testing-ls-adapter = pkgs.callPackage ./pkgs/testing-ls-adapter { inherit pkgs; };
+  zola = pkgs.callPackage ./pkgs/zola { inherit pkgs; };
 
   # secretlint = pkgs.callPackage ./pkgs/secretlint { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };

@@ -18,5 +18,25 @@
             "url": "https://github.com/kbwo/testing-language-server"
         },
         "version": "c53cdb6a6b5f8ee6b337c640a16ee3565fac94f2"
+    },
+    "zola": {
+        "cargoLocks": null,
+        "date": "2026-03-13",
+        "extract": null,
+        "name": "zola",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "33f03bb11158464e3ff877cdc5f1c55bbe7337ac",
+            "sha256": "sha256-Ihs0JjOuIBRXdVwPLvHuvXIVnetAbTTXuOL9IDMQAko=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/getzola/zola"
+        },
+        "version": "33f03bb11158464e3ff877cdc5f1c55bbe7337ac"
     }
 }

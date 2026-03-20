@@ -15,4 +15,18 @@
     };
     date = "2025-01-29";
   };
+  zola = {
+    pname = "zola";
+    version = "33f03bb11158464e3ff877cdc5f1c55bbe7337ac";
+    src = fetchgit {
+      url = "https://github.com/getzola/zola";
+      rev = "33f03bb11158464e3ff877cdc5f1c55bbe7337ac";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-Ihs0JjOuIBRXdVwPLvHuvXIVnetAbTTXuOL9IDMQAko=";
+    };
+    date = "2026-03-13";
+  };
 }
