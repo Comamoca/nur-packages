@@ -79,4 +79,4 @@ jobs:
       run: curl -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
     - name: Update readme
       run: nix develop -c update-pkgsinfo
-    - uses: stefanzweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v7
